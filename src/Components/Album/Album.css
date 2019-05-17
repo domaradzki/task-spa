@@ -1,17 +1,16 @@
-* {
-  margin: 0;
-  padding: 0;
+.album__container {
+  width:100%;
 }
-
+.album__container h2 {
+  padding: 10px;
+  width:100%;
+  color: steelblue;
+  text-transform: uppercase;
+}
 ul {
   list-style-type: none;
-  width: 500px;
 }
-
 li.album__box {
   padding: 10px;
 }
-.album__container {
-  width:100%;
 
-}

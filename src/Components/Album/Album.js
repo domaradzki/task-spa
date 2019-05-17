@@ -14,7 +14,6 @@ class Album extends Component {
   };
   componentDidMount() {
     const { albumId } = this.props.match.params;
-    console.log(albumId);
     Promise.all([getAlbumPromise(albumId), getPhotosPromise(albumId)]).then(
       ([album, photos]) => {
         this.setState({
@@ -49,7 +48,7 @@ class Album extends Component {
     return (
       <div className="album__container">
       {activePhoto && <Photo close={()=>this.handleCloseImage()} src={photoSrc} title={photoTitle} activePhoto={activePhoto} />}
-        <h2 className="album__header">{albumName}</h2>
+        <h2>{albumName}</h2>
         <ul>
           {photos.map(photo => (
             <li

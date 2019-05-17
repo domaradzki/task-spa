@@ -3,11 +3,22 @@
   padding: 0;
 }
 
-ul {
-  list-style-type: none;
-  width: 500px;
+.albumlist__container h2 {
+  padding: 10px;
+  color: steelblue;
+  text-transform: uppercase;
 }
 
 li.album__box {
   padding: 10px;
+}
+
+.album__title a {
+  color: rgb(24, 75, 117);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.album__title a:hover {
+  color: rgb(240, 240, 240);
 }
