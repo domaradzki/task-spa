@@ -29,7 +29,7 @@ class AlbumList extends Component {
         <ul>
           {albums.map(album => 
             <li className="album--box" key={album.id}>
-            <h4 className="album--title">{album.title}</h4>
+            <h4 className="album--title"><Link to={`/${album.id}`}>{album.title}</Link></h4>
             <p className="album--author">{album.author.name}</p>
             </li>
           )}
