@@ -1,0 +1,19 @@
+.photo__container {
+    width:100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo__container img {
+    width: 100%;
+    height: auto;
+}
+
+.photo__container button {
+    position: absolute;
+    top:5px;
+    right: 5px;
+    height: auto;
+}

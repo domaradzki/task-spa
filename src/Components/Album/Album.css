@@ -11,3 +11,7 @@ ul {
 li.album__box {
   padding: 10px;
 }
+.album__container {
+  width:100%;
+
+}
