@@ -8,6 +8,6 @@ ul {
   width: 500px;
 }
 
-li.album--box {
+li.album__box {
   padding: 10px;
 }

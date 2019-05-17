@@ -20,16 +20,21 @@ class Album extends Component {
       }
     );
   }
+
+  handleShowImage = id =>{
+    console.log(id)
+  }
+
   render() {
     const { photos, albumName } = this.state;
     return (
-      <div className="album--container">
-        <h2 className="album--header">{albumName}</h2>
+      <div className="album__container">
+        <h2 className="album__header">{albumName}</h2>
         <ul>
           {photos.map(photo => (
-            <li className="album--box" key={photo.id}>
+            <li onClick={()=>this.handleShowImage(photo.id)} className="album__box" key={photo.id}>
               <img alt={photo.title} src={photo.thumbnailUrl} />
-              <p className="photo--title">{photo.title}</p>
+              <p className="photo__title">{photo.title}</p>
             </li>
           ))}
         </ul>

@@ -24,13 +24,13 @@ class AlbumList extends Component {
   render() {
     const { albums } = this.state;
     return (
-      <div className="albumlist--container">
-        <h2 className="albumlist--header">Albums</h2>
+      <div className="albumlist__container">
+        <h2 className="albumlist__header">Albums</h2>
         <ul>
           {albums.map(album => 
-            <li className="album--box" key={album.id}>
-            <h4 className="album--title"><Link to={`/${album.id}`}>{album.title}</Link></h4>
-            <p className="album--author">{album.author.name}</p>
+            <li className="album__box" key={album.id}>
+            <h4 className="album__title"><Link to={`/${album.id}`}>{album.title}</Link></h4>
+            <p className="album__author">{album.author.name}</p>
             </li>
           )}
         </ul>

@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="app--container">
+        <div className="app__container">
         <Header />
         <Route exact path="/" component={AlbumList} />
         <Route path="/:albumId" component={Album} />
