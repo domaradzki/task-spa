@@ -9,10 +9,6 @@
   text-transform: uppercase;
 }
 
-li.album__box {
-  padding: 10px;
-}
-
 .album__title a {
   color: rgb(24, 75, 117);
   text-decoration: none;

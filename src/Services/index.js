@@ -11,3 +11,6 @@ export const getUsersPromise = () =>
 
   export const getAlbumPromise = (id) =>
   fetch(url + `/albums/${id}`).then(response => response.json());
+
+  export const getUserPromise = (id) =>
+  fetch(url + `/users/${id}`).then(response => response.json());

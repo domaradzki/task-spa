@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import "./Album.css";
 import { getAlbumPromise, getPhotosPromise } from "../../Services";
-import Photo from "./Photo";
+import Photo from "../Photo";
 
 class Album extends Component {
   state = {
@@ -94,7 +94,6 @@ class Album extends Component {
   }
 
   render() {
-    
     const { photos, albumName, activePhoto, photoSrc, photoTitle } = this.state;
     return (
       <div className="album__container">

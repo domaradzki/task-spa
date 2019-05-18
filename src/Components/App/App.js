@@ -4,6 +4,7 @@ import "./App.css";
 import Header from "../Header";
 import AlbumList from "../AlbumList";
 import Album from "../Album";
+import Author from "../Author";
 
 class App extends Component {
   render() {
@@ -12,7 +13,8 @@ class App extends Component {
         <div className="app__container">
         <Header />
         <Route exact path="/" component={AlbumList} />
-        <Route path="/:albumId" component={Album} />
+        <Route path="/album/:albumId" component={Album} />
+        <Route path="/user/:userId" component={Author} />
         </div>
       </Router>
     );
