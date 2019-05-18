@@ -10,7 +10,9 @@ class Album extends Component {
     photos: [],
     activePhoto: false,
     photoTitle: "",
-    photoSrc: ""
+    photoSrc: "",
+    photoNumber: null,
+    photoIds: []
   };
   componentDidMount() {
     const { albumId } = this.props.match.params;
@@ -25,13 +27,17 @@ class Album extends Component {
   }
 
   handleShowImage = id => {
-    const photo = this.state.photos.find(photo=>id===photo.id);
-    const title = photo.title;
-    const url = photo.url;
+    const photo = this.state.photos.find(photo => id === photo.id);
+    const photoTitle = photo.title;
+    const photoSrc = photo.url;
+    const photoNumber = id;
+    const photoIds = this.state.photos.map(photo => photo.id);
     this.setState({
       activePhoto: true,
-      photoTitle:title,
-      photoSrc: url
+      photoTitle,
+      photoSrc,
+      photoNumber,
+      photoIds
     });
   };
 
@@ -39,15 +45,49 @@ class Album extends Component {
     this.setState({
       activePhoto: false,
       photoTitle: "",
-      photoSrc: ""
+      photoSrc: "",
+      photoNumber: null
     });
-  }
+  };
+
+  handleLeftImage = () => {
+    this.changePhotoNumber(-1);
+  };
+
+  handleRightImage = () => {
+    this.changePhotoNumber(1);
+  };
+
+  changePhotoNumber = change => {
+    const photoNumber = this.state.photoIds.includes(
+      this.state.photoNumber + change
+    )
+      ? this.state.photoNumber + change
+      : this.state.photoNumber;
+    const photo = this.state.photos.find(photo => photoNumber === photo.id);
+    const photoTitle = photo.title;
+    const photoSrc = photo.url;
+    this.setState({
+      photoTitle,
+      photoSrc,
+      photoNumber
+    });
+  };
 
   render() {
     const { photos, albumName, activePhoto, photoSrc, photoTitle } = this.state;
     return (
       <div className="album__container">
-      {activePhoto && <Photo close={()=>this.handleCloseImage()} src={photoSrc} title={photoTitle} activePhoto={activePhoto} />}
+        {activePhoto && (
+          <Photo
+            left={() => this.handleLeftImage()}
+            right={() => this.handleRightImage()}
+            close={() => this.handleCloseImage()}
+            src={photoSrc}
+            title={photoTitle}
+            activePhoto={activePhoto}
+          />
+        )}
         <h2>{albumName}</h2>
         <ul>
           {photos.map(photo => (
