@@ -13,7 +13,35 @@ ul {
 }
 li.album__box {
   padding: 10px;
+  box-shadow: 1px 1px 5px grey;
+  margin-bottom: 10px;
 }
 .album__box p::first-letter {
   text-transform: uppercase;
+}
+
+.album__container button {
+  height: auto;
+  border: 0;
+  border-radius: 0.25rem;
+  background: steelblue;
+  color: white;
+  font-size: 1rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  margin: 0.25rem;
+}
+
+button.button__back {
+  position: absolute;
+  top: -40px;
+  right: 5px;
+}
+button.button__up {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 5px;
 }

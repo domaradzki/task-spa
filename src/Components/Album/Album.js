@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 
 import "./Album.css";
 import { getAlbumPromise, getPhotosPromise } from "../../Services";
@@ -24,6 +25,11 @@ class Album extends Component {
         });
       }
     );
+    window.onscroll = () => this.showUpButton();
+  }
+
+  componentWillUnmount() {
+    window.onscroll = null;
   }
 
   handleShowImage = id => {
@@ -74,7 +80,21 @@ class Album extends Component {
     });
   };
 
+  showUpButton = () => {
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50 ) {
+      document.querySelector(".button__up").style.display = "block";
+    } else {
+      document.querySelector(".button__up").style.display = "none";
+    }
+  }
+
+  handleScrollTop = () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0; 
+  }
+
   render() {
+    
     const { photos, albumName, activePhoto, photoSrc, photoTitle } = this.state;
     return (
       <div className="album__container">
@@ -89,6 +109,8 @@ class Album extends Component {
           />
         )}
         <h2>{albumName}</h2>
+        <Link to={`/`}><button className="button__back">Back</button></Link>
+        <button onClick={this.handleScrollTop} className="button__up">Up</button>
         <ul>
           {photos.map(photo => (
             <li
