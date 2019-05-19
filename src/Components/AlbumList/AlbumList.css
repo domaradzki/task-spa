@@ -15,6 +15,12 @@
   text-transform: uppercase;
 }
 
-.album__title a:hover {
+.album__author a {
+  color: rgb(0, 21, 37);
+  text-decoration: none;
+  
+}
+
+.album__title a:hover,.album__author a:hover {
   color: rgb(240, 240, 240);
 }
