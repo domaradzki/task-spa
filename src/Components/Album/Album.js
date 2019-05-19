@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import "./Album.css";
 import { getAlbumPromise, getPhotosPromise } from "../../Services";
@@ -13,15 +13,23 @@ class Album extends Component {
     photoTitle: "",
     photoSrc: "",
     photoNumber: null,
-    photoIds: []
+    photoIds: [],
+    isLoading: true
   };
   componentDidMount() {
     const { albumId } = this.props.match.params;
     Promise.all([getAlbumPromise(albumId), getPhotosPromise(albumId)]).then(
       ([album, photos]) => {
         this.setState({
+          isLoading: false,
           albumName: album.title,
           photos
+        });
+      },
+      error => {
+        this.setState({
+          error,
+          isLoading: false
         });
       }
     );
@@ -81,21 +89,26 @@ class Album extends Component {
   };
 
   showUpButton = () => {
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50 ) {
+    if (
+      document.body.scrollTop > 50 ||
+      document.documentElement.scrollTop > 50
+    ) {
       document.querySelector(".button__up").style.display = "block";
     } else {
       document.querySelector(".button__up").style.display = "none";
     }
-  }
+  };
 
   handleScrollTop = () => {
     document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0; 
-  }
+    document.documentElement.scrollTop = 0;
+  };
 
   render() {
-    const { photos, albumName, activePhoto, photoSrc, photoTitle } = this.state;
+    const { photos, albumName, activePhoto, photoSrc, photoTitle, isLoading } = this.state;
     return (
+      <>
+      {isLoading ? <div>...Loading</div> : 
       <div className="album__container">
         {activePhoto && (
           <Photo
@@ -108,8 +121,12 @@ class Album extends Component {
           />
         )}
         <h2>{albumName}</h2>
-        <Link to={`/`}><button className="button__back">Back</button></Link>
-        <button onClick={this.handleScrollTop} className="button__up">Up</button>
+        <Link to={`/`}>
+          <button className="button__back">Back</button>
+        </Link>
+        <button onClick={this.handleScrollTop} className="button__up">
+          Up
+        </button>
         <ul>
           {photos.map(photo => (
             <li
@@ -122,7 +139,8 @@ class Album extends Component {
             </li>
           ))}
         </ul>
-      </div>
+      </div>}
+      </>
     );
   }
 }

@@ -7,7 +7,8 @@ import { getAlbumsPromise, getUsersPromise } from "../../Services";
 class AlbumList extends Component {
   state = {
     albums: [],
-    isLoading: false
+    error:null,
+    isLoading: true
   };
   componentDidMount() {
     Promise.all([getAlbumsPromise(), getUsersPromise()]).then(
@@ -16,15 +17,24 @@ class AlbumList extends Component {
           album => (album.author = users.find(user => album.userId === user.id))
         );
         this.setState({
-          albums
+          albums,
+          isLoading:false
+        });
+      },
+      (error)=>{
+        this.setState({
+          error,
+          isLoading:false
         });
       }
     );
   }
   render() {
-    const { albums } = this.state;
+    const { albums, isLoading } = this.state;
     return (
-      <div className="albumlist__container">
+      <>
+      {isLoading ? <div>...Loading</div> : 
+      (<div className="albumlist__container">
         <h2 className="albumlist__header">Albums</h2>
         <ul>
           {albums.map(album => 
@@ -34,7 +44,8 @@ class AlbumList extends Component {
             </li>
           )}
         </ul>
-      </div>
+      </div>)}
+      </>
     );
   }
 }
