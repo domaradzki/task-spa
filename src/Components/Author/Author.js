@@ -46,7 +46,7 @@ class Author extends Component {
         <label>Contact</label>
         <p><span>email: </span>{user.email}</p>
         <p><span>phone: </span>{user.phone}</p>
-        <p><span>website: </span>{user.website}</p>
+        <p><span>website: </span><a href={`http://${user.website}`} target="_blank" rel="noopener noreferrer">{user.website}</a></p>
         </div>
       </div>}
       </>

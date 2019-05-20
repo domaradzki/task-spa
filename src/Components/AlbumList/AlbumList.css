@@ -3,6 +3,12 @@
   padding: 0;
 }
 
+li.albumlist__box {
+  padding: 10px;
+  box-shadow: 1px 1px 5px grey;
+  margin-bottom: 10px;
+}
+
 .albumlist__container h2 {
   padding: 10px;
   color: steelblue;
@@ -18,7 +24,6 @@
 .album__author a {
   color: rgb(0, 21, 37);
   text-decoration: none;
-  
 }
 
 .album__title a:hover,.album__author a:hover {

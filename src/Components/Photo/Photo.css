@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 99;
 }
 
 .photo__container img {
@@ -48,4 +49,13 @@ button.button__left:hover {
 button.button__right:hover {
   background: #4682b46e;
   color: rgb(214, 214, 214);
+}
+@media screen and (min-width: 600px) {
+  .photo__container {
+    position: fixed;
+    max-height: 90vh;
+    top: 5%;
+    left: 10%;
+    width: 80%
+  }
 }
