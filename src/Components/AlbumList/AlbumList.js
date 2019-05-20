@@ -33,7 +33,7 @@ class AlbumList extends Component {
     const { albums, isLoading } = this.state;
     return (
       <>
-      {isLoading ? <div>...Loading</div> : 
+      {isLoading ? <div>Loading...</div> : 
       (<div className="albumlist__container">
         <h2 className="albumlist__header">Albums</h2>
         <ul>

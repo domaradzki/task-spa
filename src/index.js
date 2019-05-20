@@ -1,3 +1,6 @@
+import 'react-app-polyfill/ie11';
+import 'whatwg-fetch';
+import 'core-js/features/array/';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';

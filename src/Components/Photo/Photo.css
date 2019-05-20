@@ -28,6 +28,7 @@
   padding: 0.25rem 0.5rem;
   margin: 0.25rem;
 }
+
 .photo__container button.button__left {
   top: 45%;
   left: 5px;
@@ -35,6 +36,7 @@
   color: rgb(107, 107, 107);
   font-size: 2rem;
 }
+
 .photo__container button.button__right {
   top: 45%;
   right: 5px;
@@ -42,14 +44,17 @@
   color: rgb(107, 107, 107);
   font-size: 2rem;
 }
+
 button.button__left:hover {
   background: #4682b46e;
   color: rgb(214, 214, 214);
 }
+
 button.button__right:hover {
   background: #4682b46e;
   color: rgb(214, 214, 214);
 }
+
 @media screen and (min-width: 600px) {
   .photo__container {
     position: fixed;
@@ -58,4 +63,21 @@ button.button__right:hover {
     left: 10%;
     width: 80%
   }
+}
+
+@media all and (-ms-high-contrast:none) {
+  .photo__container button.button__left {
+    right: 95%;
+  }
+  .photo__container {
+    height: 80%;
+  }
+  /* IE10 */
+  *::-ms-backdrop, .photo__container button.button__left {
+    right: 95%;
+  }
+  *::-ms-backdrop, .photo__container {
+    height: 80%;
+  }
+  /* IE11 */
 }
