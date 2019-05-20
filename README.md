@@ -1,8 +1,26 @@
 
-## Download a repository
+## To run the application
 
-## CD into a folder with repository
+1 Clone a repository
 
-## Run command line :
+2 cd into a folder with repository
+
+3 Run command line :
 
 `docker run -p 8000:80 react-docker`
+
+
+## You can also
+
+1 Clone a repository
+
+2 cd into a folder with repository
+
+3 Run command line :
+
+`yarn` or `npm install`
+
+and
+
+`yarn start` or `npm start`
+
