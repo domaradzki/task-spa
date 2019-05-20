@@ -1,6 +1,13 @@
 .app__container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding:10px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px;
+}
+
+@media screen and (min-width: 600px) {
+    .app__container {
+    width: 70vw;
+    margin: 0 auto;
+  }
 }

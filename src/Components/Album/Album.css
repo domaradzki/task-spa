@@ -45,3 +45,12 @@ button.button__up {
   bottom: 20px;
   right: 5px;
 }
+@media screen and (min-width: 600px) {
+  li.album__box {
+    display: flex;
+    align-items: center;
+  }
+  li.album__box p {
+    padding: 10px;
+  }
+}

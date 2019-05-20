@@ -31,7 +31,7 @@ class Author extends Component {
     const {user,isLoading} = this.state;
     return (
       <>
-      {isLoading ? <div>...Loading</div> :
+      {isLoading ? <div>Loading...</div> :
       <div className="author__container">
         <h2>{user.name} - Profile</h2>
         <Link to={`/`}>
@@ -46,7 +46,7 @@ class Author extends Component {
         <label>Contact</label>
         <p><span>email: </span>{user.email}</p>
         <p><span>phone: </span>{user.phone}</p>
-        <p><span>website: </span>{user.website}</p>
+        <p><span>website: </span><a href={`http://${user.website}`} target="_blank" rel="noopener noreferrer">{user.website}</a></p>
         </div>
       </div>}
       </>

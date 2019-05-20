@@ -108,7 +108,7 @@ class Album extends Component {
     const { photos, albumName, activePhoto, photoSrc, photoTitle, isLoading } = this.state;
     return (
       <>
-      {isLoading ? <div>...Loading</div> : 
+      {isLoading ? <div>Loading...</div> : 
       <div className="album__container">
         {activePhoto && (
           <Photo

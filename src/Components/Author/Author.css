@@ -7,10 +7,16 @@
   padding: 10px;
   color: steelblue;
 }
+.author__container div {
+  padding: 10px;
+  box-shadow: 1px 1px 5px grey;
+  margin-bottom: 10px;
+}
 .author__container label {
   padding: 0 10px;
   color: steelblue;
   font-weight: 600;
+  text-decoration: underline;
 }
 .author__container p {
   padding: 5px 10px;
@@ -21,6 +27,13 @@
 }
 .author__data {
   padding: 10px 10px;
+}
+.author__data p > a{
+  text-decoration: none;
+  color: rgb(0, 21, 37);
+}
+.author__data p > a:hover{
+  color: rgb(240, 240, 240);
 }
 .author__container button {
   height: auto;
