@@ -89,13 +89,18 @@ class Album extends Component {
   };
 
   showUpButton = () => {
+    const buttonUp = document.querySelector(".button__up");
     if (
       document.body.scrollTop > 50 ||
       document.documentElement.scrollTop > 50
     ) {
-      document.querySelector(".button__up").style.display = "block";
+      if (buttonUp) {
+        buttonUp.style.display = "block";
+      }
     } else {
-      document.querySelector(".button__up").style.display = "none";
+      if (buttonUp) {
+        buttonUp.style.display = "none";
+      }
     }
   };
 
@@ -105,41 +110,51 @@ class Album extends Component {
   };
 
   render() {
-    const { photos, albumName, activePhoto, photoSrc, photoTitle, isLoading } = this.state;
+    const {
+      photos,
+      albumName,
+      activePhoto,
+      photoSrc,
+      photoTitle,
+      isLoading
+    } = this.state;
     return (
       <>
-      {isLoading ? <div>Loading...</div> : 
-      <div className="album__container">
-        {activePhoto && (
-          <Photo
-            left={() => this.handleLeftImage()}
-            right={() => this.handleRightImage()}
-            close={() => this.handleCloseImage()}
-            src={photoSrc}
-            title={photoTitle}
-            activePhoto={activePhoto}
-          />
+        {isLoading ? (
+          <div>Loading...</div>
+        ) : (
+          <div className="album__container">
+            {activePhoto && (
+              <Photo
+                left={() => this.handleLeftImage()}
+                right={() => this.handleRightImage()}
+                close={() => this.handleCloseImage()}
+                src={photoSrc}
+                title={photoTitle}
+                activePhoto={activePhoto}
+              />
+            )}
+            <h2>{albumName}</h2>
+            <Link to={`/`}>
+              <button className="button__back">Back</button>
+            </Link>
+            <button onClick={this.handleScrollTop} className="button__up">
+              Up
+            </button>
+            <ul>
+              {photos.map(photo => (
+                <li
+                  onClick={() => this.handleShowImage(photo.id)}
+                  className="album__box"
+                  key={photo.id}
+                >
+                  <img alt={photo.title} src={photo.thumbnailUrl} />
+                  <p className="photo__title">{photo.title}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
-        <h2>{albumName}</h2>
-        <Link to={`/`}>
-          <button className="button__back">Back</button>
-        </Link>
-        <button onClick={this.handleScrollTop} className="button__up">
-          Up
-        </button>
-        <ul>
-          {photos.map(photo => (
-            <li
-              onClick={() => this.handleShowImage(photo.id)}
-              className="album__box"
-              key={photo.id}
-            >
-              <img alt={photo.title} src={photo.thumbnailUrl} />
-              <p className="photo__title">{photo.title}</p>
-            </li>
-          ))}
-        </ul>
-      </div>}
       </>
     );
   }
