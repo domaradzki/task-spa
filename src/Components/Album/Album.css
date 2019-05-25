@@ -8,6 +8,19 @@
   color: steelblue;
   text-transform: uppercase;
 }
+.album__header--scroll {
+  display: none;
+  position: fixed;
+  top: 0;
+  height: 50px;
+  left: 0;
+  background: #bfc0bfb0;
+  color: steelblue;
+  width: 100%;
+  padding: 20px 0 10px 15vw;
+  text-transform: uppercase;
+  box-shadow: 0px 1px 2px #565656;
+}
 ul {
   list-style-type: none;
 }

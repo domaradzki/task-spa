@@ -90,6 +90,7 @@ class Album extends Component {
 
   showUpButton = () => {
     const buttonUp = document.querySelector(".button__up");
+    const scrollHeader = document.querySelector(".album__header--scroll");
     if (
       document.body.scrollTop > 50 ||
       document.documentElement.scrollTop > 50
@@ -100,6 +101,19 @@ class Album extends Component {
     } else {
       if (buttonUp) {
         buttonUp.style.display = "none";
+      }
+    }
+    
+    if (
+      document.body.scrollTop > 150 ||
+      document.documentElement.scrollTop > 150
+    ) {
+      if (scrollHeader) {
+        scrollHeader.style.display = "block";
+      }
+    } else {
+      if (scrollHeader) {
+        scrollHeader.style.display = "none";
       }
     }
   };
@@ -135,6 +149,7 @@ class Album extends Component {
               />
             )}
             <h2>{albumName}</h2>
+            <h3 className="album__header--scroll">Album - {albumName}</h3>
             <Link to={`/`}>
               <button className="button__back">Back</button>
             </Link>
